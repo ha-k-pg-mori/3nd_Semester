@@ -1,35 +1,35 @@
 #ifndef DEFINITION_H
 #define DEFINITION_H
 
-// ƒV[ƒ“ID
+// ï¿½Vï¿½[ï¿½ï¿½ID
 enum SceneID
 {
-	SceneID_Title,      // ƒ^ƒCƒgƒ‹
-	SceneID_InGame,     // ƒCƒ“ƒQ[ƒ€
-	SceneID_Result,     // ƒŠƒUƒ‹ƒg
+	SceneID_Title,      // ï¿½^ï¿½Cï¿½gï¿½ï¿½
+	SceneID_InGame,     // ï¿½Cï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½
+	SceneID_Result,     // ï¿½ï¿½ï¿½Uï¿½ï¿½ï¿½g
 
 	SceneID_Max,
-	SceneID_Invalid,    // –³Œø’l
+	SceneID_Invalid,    // ï¿½ï¿½ï¿½ï¿½ï¿½l
 };
 // -------------------------------------
-// ‘qŒÉ”Ô—p‚Ì’è‹`
+// ï¿½qï¿½É”Ô—pï¿½Ì’ï¿½`
 const int STAGE_WIDTH = 11;
 const int STAGE_HEIGHT = 13;
 
-// ƒ}ƒbƒvƒ`ƒbƒv‚Ìc•`‰æƒTƒCƒY
+// ï¿½}ï¿½bï¿½vï¿½`ï¿½bï¿½vï¿½Ìcï¿½`ï¿½ï¿½Tï¿½Cï¿½Y
 const int CHIP_WIDTH = 32;
 const int CHIP_HEIGHT = 32;
 
 
 
-// ƒIƒuƒWƒFƒNƒgŽí—Þ
-// @@@@0  ’n–Ê
-//         1@•Ç
-//         2@ƒvƒŒƒCƒ„[‚Ì‰Šú’n“_
-//         3@ƒNƒŒ[ƒg”z’uêŠ
-//         4@–¢”z’u‚ÌƒNƒŒ[ƒg
-//         7@”z’uÏ‚Ý‚ÌƒNƒŒ[ƒg
-// @@@@@i”z’uêŠ'3'+–¢”z’uƒNƒŒ[ƒg'4' = 7)
+// ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½
+// ï¿½@ï¿½@ï¿½@ï¿½@0  ï¿½nï¿½ï¿½
+//         1ï¿½@ï¿½ï¿½
+//         2ï¿½@ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìï¿½ï¿½ï¿½ï¿½nï¿½_
+//         3ï¿½@ï¿½Nï¿½ï¿½ï¿½[ï¿½gï¿½zï¿½uï¿½êŠ
+//         4ï¿½@ï¿½ï¿½ï¿½zï¿½uï¿½ÌƒNï¿½ï¿½ï¿½[ï¿½g
+//         7ï¿½@ï¿½zï¿½uï¿½Ï‚Ý‚ÌƒNï¿½ï¿½ï¿½[ï¿½g
+// ï¿½@ï¿½@ï¿½@ï¿½@ï¿½@ï¿½iï¿½zï¿½uï¿½êŠ'3'+ï¿½ï¿½ï¿½zï¿½uï¿½Nï¿½ï¿½ï¿½[ï¿½g'4' = 7)
 
 enum ObjectType
 {
@@ -41,7 +41,7 @@ enum ObjectType
 	Objecttype_SetCrate,	 // 7
 };
 
-// ˆÚ“®•ûŒü
+// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½
 enum DirType
 {
 	DirType_Up, 
@@ -49,7 +49,7 @@ enum DirType
 	DirType_Left,
 	DirType_Right,
 	
-	// ‰æ‘œ“Ç‚Ýž‚Ý‚ÅŽg—p‚·‚é
+	// ï¿½æ‘œï¿½Ç‚Ýï¿½ï¿½Ý‚ÅŽgï¿½pï¿½ï¿½ï¿½ï¿½
 	DirType_Max,
 };
 

@@ -3,20 +3,21 @@
 
 #include "DxLib.h"
 
-// ƒL[‚Ìí—Ş
+// ï¿½Lï¿½[ï¿½Ìï¿½ï¿½
 enum KeyType
 {
-	KeyType_Up,    // ãˆÚ“®
-	KeyType_Down,  // ‰ºˆÚ“®
-	KeyType_Left,  // ¶ˆÚ“®
-	KeyType_Right, // ‰EˆÚ“®
-	KeyType_Enter, // Œˆ’è
-	KeyType_Reset, // ƒŠƒZƒbƒg
+	KeyType_Up,    // ï¿½ï¿½Ú“ï¿½
+	KeyType_Down,  // ï¿½ï¿½ï¿½Ú“ï¿½
+	KeyType_Left,  // ï¿½ï¿½ï¿½Ú“ï¿½
+	KeyType_Right, // ï¿½Eï¿½Ú“ï¿½
+	KeyType_Enter, // ï¿½ï¿½ï¿½ï¿½
+	KeyType_Reset, // ï¿½ï¿½ï¿½Zï¿½bï¿½g
+	KeyType_Clear,
 
-	KeyType_Max    // ƒL[‚Ìí—Ş‚Ì”
+	KeyType_Max    // ï¿½Lï¿½[ï¿½Ìï¿½Ş‚Ìï¿½
 };
 
-// ƒL[‚Ìí—Ş‚É‘Î‰‚·‚éAÀÛ‚Ì“ü—Í”z—ñ
+// ï¿½Lï¿½[ï¿½Ìï¿½Ş‚É‘Î‰ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Û‚Ì“ï¿½ï¿½Í”zï¿½ï¿½
 const int KEY_ASSIGN[KeyType_Max] =
 {
 	KEY_INPUT_UP,     // KeyType_Up
@@ -25,6 +26,7 @@ const int KEY_ASSIGN[KeyType_Max] =
 	KEY_INPUT_RIGHT,  // KeyType_Right
 	KEY_INPUT_RETURN, // KeyType_Enter
 	KEY_INPUT_R,      // KeyType_Reset
+	KEY_INPUT_C,
 };
 
 #endif // !KEY_DEFINITION_H

@@ -5,47 +5,47 @@
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	// DXƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
-	SetOutApplicationLogValidFlag(FALSE);  // ƒƒOo—Í
-	ChangeWindowMode(TRUE);                // ƒEƒBƒ“ƒhƒEƒ‚[ƒh
-	SetGraphMode(640, 480, 32);            // ‰æ–Êƒ‚[ƒh•ÏX
-	SetBackgroundColor(125,125, 125);     // ”wŒiF                 
-	SetMainWindowText("My‘qŒÉ”Ô");     // ƒƒjƒ…[ƒo[‚Ìƒ^ƒCƒgƒ‹
+	// DXï¿½ï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	SetOutApplicationLogValidFlag(FALSE);  // ï¿½ï¿½ï¿½Oï¿½oï¿½ï¿½
+	ChangeWindowMode(TRUE);                // ï¿½Eï¿½Bï¿½ï¿½ï¿½hï¿½Eï¿½ï¿½ï¿½[ï¿½h
+	SetGraphMode(640, 480, 32);            // ï¿½ï¿½Êƒï¿½ï¿½[ï¿½hï¿½ÏX
+	SetBackgroundColor(125,125, 125);     // ï¿½wï¿½iï¿½F                 
+	SetMainWindowText("Myï¿½qï¿½É”ï¿½");     // ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½oï¿½[ï¿½Ìƒ^ï¿½Cï¿½gï¿½ï¿½
 
-	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠ‰Šú‰»ˆ—
+	// ï¿½cï¿½wï¿½ï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (DxLib_Init() == -1){return -1;}
 
-	// •`‰ææ‚ð— ‚Ì‰æ–Ê‚ÉÝ’è
+	// ï¿½`ï¿½ï¿½ï¿½ð— ‚Ì‰ï¿½Ê‚ÉÝ’ï¿½
 	SetDrawScreen(DX_SCREEN_BACK);
 
-	// ƒQ[ƒ€‚ðŽn‚ß‚é‘O‚Ì‰Šú‰»ˆ—
+	// ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½nï¿½ß‚ï¿½Oï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GameManager::CreateInstance();
 	InputManager::CreateInstance();
 	SceneManager::CreateInstance();
 	
+	
 
-
-	// ƒQ[ƒ€ƒ‹[ƒv
+	// ï¿½Qï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½v
 	while (true)
 	{
-		// Windows‚ÌƒƒbƒZ[ƒWˆ—‚ÉŽ¸”s‚µ‚½‚©A•Â‚¶‚±‚ß‚ç‚ê‚½‚çI—¹
+		// Windowsï¿½Ìƒï¿½ï¿½bï¿½Zï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ÉŽï¿½ï¿½sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Â‚ï¿½ï¿½ï¿½ï¿½ß‚ï¿½ê‚½ï¿½ï¿½Iï¿½ï¿½
 		if (ProcessMessage() != 0) { break; }
 
-		// DxLib‚Ì‚¨–ñ‘©F‰æ–ÊƒNƒŠƒA
+		// DxLibï¿½Ì‚ï¿½ï¿½ñ‘©Fï¿½ï¿½ÊƒNï¿½ï¿½ï¿½A
 		ClearDrawScreen();
 		clsDx();
 
 		InputManager* pInputMng = InputManager::GetInstance();
 		SceneManager* pSceneMng = SceneManager::GetInstance();
 
-		// ˆ—
+		// ï¿½ï¿½ï¿½ï¿½
 		pInputMng->Update();
 		pSceneMng->Exec();
 
-		// •\Ž¦
+		// ï¿½\ï¿½ï¿½
 		pSceneMng->Draw();
 
-		// DxLib‚Ì‚¨–ñ‘©F‰æ–ÊXV
+		// DxLibï¿½Ì‚ï¿½ï¿½ñ‘©Fï¿½ï¿½ÊXï¿½V
 		ScreenFlip();
 	}
 
@@ -57,12 +57,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	
 
-	// ƒL[“ü—Í‘Ò‚¿
+	// ï¿½Lï¿½[ï¿½ï¿½ï¿½Í‘Ò‚ï¿½
 	WaitKey();				
 
-	// ‚c‚wƒ‰ƒCƒuƒ‰ƒŠŽg—p‚ÌI—¹ˆ—
+	// ï¿½cï¿½wï¿½ï¿½ï¿½Cï¿½uï¿½ï¿½ï¿½ï¿½ï¿½gï¿½pï¿½ÌIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DxLib_End();				
 
-	// ƒ\ƒtƒg‚ÌI—¹ 
+	// ï¿½\ï¿½tï¿½gï¿½ÌIï¿½ï¿½ 
 	return 0;				
 }

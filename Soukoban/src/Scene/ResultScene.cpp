@@ -32,8 +32,8 @@ ResultScene::~ResultScene()
 
 void ResultScene::Exec()
 {
-	// @@Debug ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
-	// m_Step‚ğƒJƒEƒ“ƒgƒAƒbƒv
+	// @@Debug ï¿½Jï¿½ÚŠmï¿½Fï¿½pï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½
+	// m_Stepï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Aï¿½bï¿½v
 	/*m_Step++;
 	if (m_Step >= 120)
 	{
@@ -50,7 +50,9 @@ void ResultScene::Exec()
 void ResultScene::Draw()
 {
 	
-	DrawGraph(20, 20, Result, FALSE);
+	//DrawGraph(20, 20, Result, FALSE);
+
+	LoadGraphScreen(0, 0, "data/Clear.png", TRUE);
 
 	DrawString(20, 20, "ResultScene", GetColor(0, 0, 0));
 
@@ -59,7 +61,7 @@ void ResultScene::Draw()
 
 bool ResultScene::IsEnd() const
 {
-	// @@Debug ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Debug ï¿½Jï¿½ÚŠmï¿½Fï¿½pï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½
 	return (m_Step == STEP_END);
 }
 

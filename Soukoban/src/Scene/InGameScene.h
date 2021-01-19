@@ -3,7 +3,7 @@
 
 #include "DxLib.h"
 #include "SceneBase.h"
-// ’è‹`ƒwƒbƒ^[
+// ï¿½ï¿½`ï¿½wï¿½bï¿½^ï¿½[
 #include "../Definition.h"
 
 class InGameScene : public SceneBase
@@ -13,8 +13,8 @@ public:
 	virtual~InGameScene();
 
 public:
-	virtual void Exec();  // ˆ—‚ğs‚¤
-	virtual void Draw();  // •`‰æ‚ğs‚¤
+	virtual void Exec();  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½
+	virtual void Draw();  // ï¿½`ï¿½ï¿½ï¿½sï¿½ï¿½
 
 	virtual bool IsEnd() const;
 
@@ -39,21 +39,21 @@ private:
 	void step_Input();
 	void step_ClearJingle();
 
-// ‘qŒÉ”Ô‚ÉŠÖŒW‚·‚éŠÖ”ŒQ
+// ï¿½qï¿½É”Ô‚ÉŠÖŒWï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½Q
 private:
-	// ƒQ[ƒ€ƒNƒŠƒA”»’è
+	// ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½
 	bool IsClear()const;
-	// ‰Šú‰»ó‘Ô‚ÉƒŠƒZƒbƒg
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Éƒï¿½ï¿½Zï¿½bï¿½g
 	void Reset();
-	// ˆÚ“®ˆ—
+	// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½
 	void Move( DirType dir_ );
 
 	
 
 private:
 	int m_StageData[STAGE_HEIGHT][STAGE_WIDTH];
-	int m_PlayerX; // ”z—ñã‚Ìx
-	int m_PlayerY; // ”z—ñã‚Ìy	
+	int m_PlayerX; // ï¿½zï¿½ï¿½ï¿½ï¿½x
+	int m_PlayerY; // ï¿½zï¿½ï¿½ï¿½ï¿½y	
 };
 
 #endif // !RESULTSCENE_H

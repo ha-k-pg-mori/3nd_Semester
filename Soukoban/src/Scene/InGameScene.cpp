@@ -11,10 +11,21 @@ enum
 	STEP_END,
 };
 
-//int MosyonList[]
-//{
-//
-//};
+int MosyonList[]
+{
+	LoadGraphScreen(0, 0, "data/Player/player_00.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_01.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_02.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_03.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_04.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_05.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_06.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_07.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_08.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_09.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_10.png", TRUE),
+	LoadGraphScreen(0, 0, "data/Player/player_11.png", TRUE),
+};
 
 
 
@@ -78,8 +89,8 @@ void InGameScene::Exec()
 	case STEP_CLEAR_JINGLE:  step_ClearJingle();  break;
 	default: break;
 	}
-	// @@Debug ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
-	// m_Step‚ğƒJƒEƒ“ƒgƒAƒbƒv
+	// @@Debug ï¿½Jï¿½ÚŠmï¿½Fï¿½pï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½
+	// m_Stepï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Aï¿½bï¿½v
 	/*m_Step++;
 	if (m_Step >= 120)
 	{
@@ -102,27 +113,27 @@ void InGameScene::Draw()
 			switch (m_StageData[y][x])
 			{
 			case Objecttype_Ground:
-				// 0 ‚È‚µ
+				// 0 ï¿½È‚ï¿½
 				color = DrawGraph(x * CHIP_WIDTH , y * CHIP_HEIGHT , Ground, FALSE);
 				break;
 			case Objecttype_Wall:
 				color = DrawGraph(x * CHIP_WIDTH , y * CHIP_HEIGHT , Wall, FALSE);
-				//color = GetColor(255, 255, 255);	 // 1 ”’(255, 255, 255)
+				//color = GetColor(255, 255, 255);	 // 1 ï¿½ï¿½(255, 255, 255)
 				break;
 			case Objecttype_Target:
-				color = DrawGraph(x * CHIP_WIDTH, y * CHIP_HEIGHT, Target, FALSE);	 // 3 Ô(255,   0,   0)
+				color = DrawGraph(x * CHIP_WIDTH, y * CHIP_HEIGHT, Target, FALSE);	 // 3 ï¿½ï¿½(255,   0,   0)
 				break;
 			case Objecttype_UnsetCrate:
-				color = DrawGraph(x * CHIP_WIDTH, y * CHIP_HEIGHT, UnsetCreate, FALSE);	 // 4 ‡(255,   0, 255)
+				color = DrawGraph(x * CHIP_WIDTH, y * CHIP_HEIGHT, UnsetCreate, FALSE);	 // 4 ï¿½ï¿½(255,   0, 255)
 				break;
 			case Objecttype_SetCrate:
-				color =DrawGraph(x * CHIP_WIDTH, y* CHIP_HEIGHT, SetCrate, FALSE);	 // 7 —Î(  0, 255,   0)
+				color =DrawGraph(x * CHIP_WIDTH, y* CHIP_HEIGHT, SetCrate, FALSE);	 // 7 ï¿½ï¿½(  0, 255,   0)
 				break;
 			}
 
 			//DrawGraph(x * CHIP_WIDTH + CHIP_WIDTH, y * CHIP_HEIGHT + CHIP_HEIGHT, Ground, FALSE);
 
-			// DrawBox‚Å•`‰æ‚·‚é‚È‚ç’n–ÊˆÈŠO‚Æ‚¢‚¤”»’è‚Å‚à‚æ‚¢
+			// DrawBoxï¿½Å•`ï¿½æ‚·ï¿½ï¿½È‚ï¿½nï¿½ÊˆÈŠOï¿½Æ‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å‚ï¿½æ‚¢
 			/*if (m_StageData[y][x] = Objecttype_Ground)
 			{
 				DrawBox(x * CHIP_WIDTH,
@@ -135,21 +146,7 @@ void InGameScene::Draw()
 		}
 	}
     
-	switch (m_PlayerX,m_PlayerY)
-	{
-	case DirType_Up:
-		DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, Player00, FALSE);
-		break;
-	case DirType_Down:
-		DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, Player01, FALSE);
-		break;
-	case DirType_Left:
-		DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, Player02, FALSE);
-		break;
-	case DirType_Right:
-		DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, Player03, FALSE);
-		break;
-	}
+	if(Animation == MosyonList)
 
 	//DrawGraph(0, 0, Wall, FALSE);
 
@@ -178,7 +175,7 @@ void InGameScene::Draw()
 
 bool InGameScene::IsEnd() const
 {
-	// @@Debug ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Debug ï¿½Jï¿½ÚŠmï¿½Fï¿½pï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½
 	return (m_Step == STEP_END);
 }
 
@@ -191,6 +188,11 @@ void InGameScene::step_StartJingle()
 void InGameScene::step_Input()
 {
 	InputManager* pInputMng = InputManager::GetInstance();
+	if (pInputMng->IsPush(KeyType_Clear))
+	{
+		set_Step(STEP_END);
+		SceneManager::SetNextScene(SceneID_Result);
+	}
 	if (pInputMng->IsPush(KeyType_Reset))
 	{
 		Reset();
@@ -235,13 +237,13 @@ void InGameScene::step_ClearJingle()
 }
 
 
-// ƒQ[ƒ€ƒNƒŠƒA”»’è
-// true = ƒNƒŠƒA‚µ‚Ä‚¢‚é
-// false = –¢ƒNƒŠƒA
+// ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½
+// true = ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
+// false = ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½A
 bool InGameScene::IsClear() const
 {
-	// 2dfor•¶‚Åm_StageData‚Ì”z—ñ‚ğŒŸõ‚µA
-	// 1‚Â‚Å‚àObjctType_Unasetcreate‚ªŒ©‚Â‚©‚Á‚½‚çfalse‚ğ•Ô‚·
+	// 2ï¿½dforï¿½ï¿½ï¿½ï¿½m_StageDataï¿½Ì”zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½A
+	// 1ï¿½Â‚Å‚ï¿½ObjctType_Unasetcreateï¿½ï¿½ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½falseï¿½ï¿½Ô‚ï¿½
 	for (int y = 0; y < STAGE_HEIGHT; y++)
 	{
 		for (int x = 0; x < STAGE_WIDTH; x++)
@@ -253,16 +255,16 @@ bool InGameScene::IsClear() const
 		}
 	}
 
-	// for•¶‚ğ”²‚¯‚Ä‚«‚½‚çObjetType_UnsetCreate‚ª‚È‚©‚Á‚½‚±‚Æ‚É‚È‚èA
-	// ‹tà“I‚É‚·‚×‚ÄObjectType_SetCreateó‘Ô‚É‚È‚Á‚Ä‚¢‚é(== ƒQ[ƒ€ƒNƒŠƒAj
+	// forï¿½ï¿½ï¿½ğ”²‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½ï¿½ObjetType_UnsetCreateï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ‚É‚È‚ï¿½A
+	// ï¿½tï¿½ï¿½Iï¿½É‚ï¿½ï¿½×‚ï¿½ObjectType_SetCreateï¿½ï¿½Ô‚É‚È‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½(== ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½j
 	return true;
 }
 
-// ‰Šú‰»ó‘Ô‚ÉƒŠƒZƒbƒg
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚Éƒï¿½ï¿½Zï¿½bï¿½g
 void InGameScene::Reset()
 {
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‰Šú‰»‚µ‚Ä‚¢‚é•”•ª‚ğ‚»‚Ì‚Ü‚Ü‚±‚¿‚ç‚ÖˆÚİ‚·‚é
-	// ƒXƒe[ƒWƒf[ƒ^‚ğ‰Šú‰»‚·‚é
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Åï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é•”ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì‚Ü‚Ü‚ï¿½ï¿½ï¿½ï¿½ï¿½ÖˆÚİ‚ï¿½ï¿½ï¿½
+	// ï¿½Xï¿½eï¿½[ï¿½Wï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for (int y = 0; y < STAGE_HEIGHT; y++)
 	{
 		for (int x = 0; x < STAGE_WIDTH; x++)
@@ -276,16 +278,16 @@ void InGameScene::Reset()
 			}
 		}
 	}
-	// ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÅReset‚ğŒÄ‚Ño‚·
-	// step_Input‚ÅAKeyType_Reset‚ª‰Ÿ‚³‚ê‚½‚çAReset()‚ğŒÄ‚Ño‚·
+	// ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½ï¿½Resetï¿½ï¿½Ä‚Ñoï¿½ï¿½
+	// step_Inputï¿½ÅAKeyType_Resetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½AReset()ï¿½ï¿½Ä‚Ñoï¿½ï¿½
 
-	// ¦ŠO•”ƒf[ƒ^‚ğ“Ç‚İ‚ñ‚¾‚èAƒXƒe[ƒW‚ğ‘‚â‚·ê‡‚Íˆ—“à—e‚ğl‚¦‚é•K—v‚ª‚ ‚é
+	// ï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½ï¿½Ç‚İï¿½ï¿½ñ‚¾‚ï¿½Aï¿½Xï¿½eï¿½[ï¿½Wï¿½ğ‘‚â‚·ï¿½ê‡ï¿½Íï¿½ï¿½ï¿½ï¿½ï¿½eï¿½ï¿½lï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
-// ˆÚ“®ˆ—
+// ï¿½Ú“ï¿½ï¿½ï¿½ï¿½ï¿½
 void InGameScene::Move(DirType dir_)
 {
-	// DirType‚ª”ÍˆÍ“à‚©
+	// DirTypeï¿½ï¿½ï¿½ÍˆÍ“ï¿½ï¿½
 	if (dir_ >= DirType_Up && dir_ >= DirType_Max)
 	{
 		return;
@@ -316,35 +318,35 @@ void InGameScene::Move(DirType dir_)
 		break;
 	}
 
-	// ˆÚ“®æ‚ª‰æ–ÊŠO‚È‚çAŠÖ”‚ğ”²‚¯‚é
+	// ï¿½Ú“ï¿½ï¿½æ‚ªï¿½ï¿½ÊŠOï¿½È‚ï¿½Aï¿½Öï¿½ï¿½ğ”²‚ï¿½ï¿½ï¿½
 	if (next_x < 0 || next_y < 0 || next_x >(STAGE_WIDTH - 1) || next_y >(STAGE_HEIGHT -1))
 	{
 		return;
 	}
 
-	// ’ÊíˆÚ“®iˆÚ“®æ‚ªƒvƒŒ[ƒ„[‚Ìæ‚ê‚éƒ}ƒbƒvƒ`ƒbƒv‚Ìí—Ş‚¾‚Á‚½‚çm_PlayerX(Y)‚ğ‚»‚ê‚¼‚ênext_x(y)‚Åã‘‚«
+	// ï¿½Êï¿½Ú“ï¿½ï¿½iï¿½Ú“ï¿½ï¿½æ‚ªï¿½vï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Ìï¿½ï¿½ï¿½}ï¿½bï¿½vï¿½`ï¿½bï¿½vï¿½Ìï¿½Ş‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½m_PlayerX(Y)ï¿½ï¿½ï¿½ï¿½ê‚¼ï¿½ï¿½next_x(y)ï¿½Åã‘ï¿½ï¿½
 	if (m_StageData[next_y][next_x] == Objecttype_Ground ||
 		m_StageData[next_y][next_x] == Objecttype_Target)
 	{
 		m_PlayerX = next_x;
 		m_PlayerY = next_y;
 	}
-	// ˆÚ“®æ‚É” iƒNƒŒ[ƒgj‚ª‚ ‚éê‡
+	// ï¿½Ú“ï¿½ï¿½ï¿½É”ï¿½ï¿½iï¿½Nï¿½ï¿½ï¿½[ï¿½gï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡
 	else if(m_StageData[next_y][next_x] == Objecttype_UnsetCrate ||
 		    m_StageData[next_y][next_x] == Objecttype_SetCrate)
 	{
-		// 2‚Â‚Ìæ‚ª‰æ–ÊŠO‚©ƒ`ƒFƒbƒN
+		// 2ï¿½Â‚Ìæ‚ªï¿½ï¿½ÊŠOï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 		if (next2_x < 0 || next2_y < 0 || next2_x >(STAGE_WIDTH - 1) || next_y >(STAGE_HEIGHT - 1))
 		{
 			return;
 		}
-		// 2‚Âæ‚ÌˆÚ“®‚Å‚«‚È‚¢•¨‚©ƒ`ƒFƒbƒN
+		// 2ï¿½Âï¿½ÌˆÚ“ï¿½ï¿½Å‚ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½Fï¿½bï¿½N
 		if (m_StageData[next2_y][next2_x] != Objecttype_Ground &&
 			m_StageData[next2_y][next2_x] != Objecttype_Target)
 		{
 			return;
 		}
-		// ‚Æ‚È‚è‚ÌˆÊ’u‚ğ•ÏX‚·‚é
+		// ï¿½Æ‚È‚ï¿½ÌˆÊ’uï¿½ï¿½ÏXï¿½ï¿½ï¿½ï¿½
 		if (m_StageData[next_y][next_x] == Objecttype_UnsetCrate)
 		{
 			m_StageData[next_y][next_x] = Objecttype_Ground;
