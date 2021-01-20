@@ -22,6 +22,15 @@ public:
 	int Player01;
 	int Player02;
 	int Player03;
+	int Player04;
+	int Player05;
+	int Player06;
+	int Player07;
+	int Player08;
+	int Player09;
+	int Player10;
+	int Player11;
+	
 	int Wall;
 	int Ground;
 	int Target;
@@ -30,6 +39,7 @@ public:
 	
 	int ClickCounter = 0;
 
+	int Direction;
 	int Animation;
 
 	int Color = GetColor(0, 0, 0);
