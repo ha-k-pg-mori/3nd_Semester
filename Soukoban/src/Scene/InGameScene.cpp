@@ -11,21 +11,6 @@ enum
 	STEP_END,
 };
 
-int MosyonList[]
-{
-	LoadGraphScreen(0, 0, "data/Player/player_00.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_01.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_02.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_03.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_04.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_05.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_06.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_07.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_08.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_09.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_10.png", TRUE),
-	LoadGraphScreen(0, 0, "data/Player/player_11.png", TRUE),
-};
 
 
 
@@ -60,13 +45,6 @@ InGameScene::InGameScene()
 
 	Wall = LoadGraph("data/Ground/block.png");
 
-	Player00 = LoadGraph("data/Player/player_00.png");
-
-	Player01 = LoadGraph("data/Player/player_03.png");
-
-	Player02 = LoadGraph("data/Player/player_07.png");
-
-	Player03 = LoadGraph("data/Player/player_10.png");
 
 	Target = LoadGraph("data/Crate/Crate_00.png");
 
@@ -77,7 +55,8 @@ InGameScene::InGameScene()
 
 InGameScene::~InGameScene()
 {
-	
+	Animation = -1;
+	Direction = DirType_Up;
 }
 
 void InGameScene::Exec()
@@ -89,6 +68,8 @@ void InGameScene::Exec()
 	case STEP_CLEAR_JINGLE:  step_ClearJingle();  break;
 	default: break;
 	}
+
+
 	// @@Debug �J�ڊm�F�p�̉�����
 	// m_Step��J�E���g�A�b�v
 	/*m_Step++;
@@ -145,14 +126,65 @@ void InGameScene::Draw()
 			}*/
 		}
 	}
+<<<<<<< HEAD
     
+=======
+
+	int MosyonList[]
+	{
+		LoadGraph("data/Player/player_00.png"),
+		LoadGraph("data/Player/player_01.png"),
+		LoadGraph("data/Player/player_02.png"),
+		LoadGraph("data/Player/player_03.png"),
+		LoadGraph("data/Player/player_04.png"),
+		LoadGraph("data/Player/player_05.png"),
+		LoadGraph("data/Player/player_06.png"),
+		LoadGraph("data/Player/player_07.png"),
+		LoadGraph("data/Player/player_08.png"),
+		LoadGraph("data/Player/player_09.png"),
+		LoadGraph("data/Player/player_10.png"),
+		LoadGraph("data/Player/player_11.png"),
+	};
+
+
+	if (Direction == DirType_Up)
+	{
+		if (Animation == 1)Animation = 2;
+		else if (Animation == 0)Animation = 1;
+		else if (Animation != 0)Animation = 0;
+	}
+	else if (Direction == DirType_Down)
+	{
+		if (Animation == 4)Animation = 5;
+		else if (Animation == 3)Animation = 4;
+		else if (Animation != 3)Animation = 3;
+	}
+	else if (Direction == DirType_Left)
+	{
+		if (Animation == 7)Animation = 8;
+		else if (Animation == 6)Animation = 7;
+		else if (Animation != 6)Animation = 6;
+	}
+	else
+	{
+		if (Animation == 10)Animation = 11;
+		else if (Animation == 9)Animation = 10;
+		else if (Animation != 9)Animation = 9;
+	}
+
+
+
+	
+
+	DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, MosyonList[Animation], FALSE);
+>>>>>>> ca452737df229c2ade9c195a8869e45b0306daa1
 	
 
 	//DrawGraph(0, 0, Wall, FALSE);
 
 	
 
-	DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, Player01, FALSE);
+	//DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, Player01, FALSE);
 	
 	/*DrawBox(m_PlayerX * CHIP_WIDTH,
 		m_PlayerY * CHIP_HEIGHT,
@@ -197,25 +229,30 @@ void InGameScene::step_Input()
 	{
 		Reset();
 		ClickCounter = 0;
+		
 	}
 	else if (pInputMng->IsPush(KeyType_Up))
 	{
 		Move(DirType_Up);
+		Direction = DirType_Up;
 		ClickCounter += 1;
 	}
 	else if (pInputMng->IsPush(KeyType_Down))
 	{
 		Move(DirType_Down);
+		Direction = DirType_Down;
 		ClickCounter += 1;
 	}
 	else if (pInputMng->IsPush(KeyType_Left))
 	{
 		Move(DirType_Left);
+		Direction = DirType_Left;
 		ClickCounter += 1;
 	}
 	else if (pInputMng->IsPush(KeyType_Right))
 	{
 		Move(DirType_Right);
+		Direction = DirType_Right;
 		ClickCounter += 1;
 	}
 
