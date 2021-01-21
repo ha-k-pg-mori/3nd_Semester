@@ -146,7 +146,7 @@ void InGameScene::Draw()
 		}
 	}
     
-	if(Animation == MosyonList)
+	
 
 	//DrawGraph(0, 0, Wall, FALSE);
 
