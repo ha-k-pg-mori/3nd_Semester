@@ -126,9 +126,8 @@ void InGameScene::Draw()
 			}*/
 		}
 	}
-<<<<<<< HEAD
+
     
-=======
 
 	int MosyonList[]
 	{
@@ -177,7 +176,7 @@ void InGameScene::Draw()
 	
 
 	DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, MosyonList[Animation], FALSE);
->>>>>>> ca452737df229c2ade9c195a8869e45b0306daa1
+
 	
 
 	//DrawGraph(0, 0, Wall, FALSE);

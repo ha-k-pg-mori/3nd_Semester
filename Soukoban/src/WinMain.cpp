@@ -10,7 +10,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ChangeWindowMode(TRUE);                // �E�B���h�E���[�h
 	SetGraphMode(640, 480, 32);            // ��ʃ��[�h�ύX
 	SetBackgroundColor(125,125, 125);     // �w�i�F                 
-	SetMainWindowText("My�q�ɔ�");     // ���j���[�o�[�̃^�C�g��
+	SetMainWindowText("倉庫番");     // ���j���[�o�[�̃^�C�g��
 
 	// �c�w���C�u��������������
 	if (DxLib_Init() == -1){return -1;}
