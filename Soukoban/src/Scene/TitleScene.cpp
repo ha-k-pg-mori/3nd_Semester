@@ -30,8 +30,8 @@ void TitleScene::Exec()
 	default: break;
 	}
 
-	// @@Debug ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
-	// m_Step‚ğƒJƒEƒ“ƒgƒAƒbƒv
+	// @@Debug ï¿½Jï¿½ÚŠmï¿½Fï¿½pï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½
+	// m_Stepï¿½ï¿½Jï¿½Eï¿½ï¿½ï¿½gï¿½Aï¿½bï¿½v
 	/*InputManager* pInputMng = InputManager::GetInstance();
 	if (pInputMng->IsPush(KeyType_Enter))
 	{
@@ -43,11 +43,14 @@ void TitleScene::Exec()
 void TitleScene::Draw()
 {
 	DrawString(20, 20, "TitleScene", GetColor(0, 0, 0));
+
+	DrawString(240,240, "Please press Enter", GetColor(0, 0, 0));
 }
+
 
 bool TitleScene::IsEnd() const
 {
-	// @@Debug ‘JˆÚŠm”F—p‚Ì‰¼ˆ—
+	// @@Debug ï¿½Jï¿½ÚŠmï¿½Fï¿½pï¿½Ì‰ï¿½ï¿½ï¿½ï¿½ï¿½
 	return (m_Step == STEP_END);
 }
 

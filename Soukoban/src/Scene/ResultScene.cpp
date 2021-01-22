@@ -52,7 +52,7 @@ void ResultScene::Draw()
 	
 	//DrawGraph(20, 20, Result, FALSE);
 
-	LoadGraphScreen(0, 0, "data/Clear.png", TRUE);
+	LoadGraphScreen(120,120, "data/Clear.png", TRUE);
 
 	DrawString(20, 20, "ResultScene", GetColor(0, 0, 0));
 
