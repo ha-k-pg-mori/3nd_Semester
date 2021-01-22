@@ -127,6 +127,8 @@ void InGameScene::Draw()
 		}
 	}
 
+    
+
 	int MosyonList[]
 	{
 		LoadGraph("data/Player/player_00.png"),
@@ -174,6 +176,7 @@ void InGameScene::Draw()
 	
 
 	DrawGraph(m_PlayerX * CHIP_WIDTH, m_PlayerY * CHIP_HEIGHT, MosyonList[Animation], FALSE);
+
 	
 
 	//DrawGraph(0, 0, Wall, FALSE);
